@@ -1,0 +1,14 @@
+Update Job Thought Process
+
+1. get user id from req.user
+2. get doc id from req.params.id
+3. find based on doc id and update status
+
+Delete Job
+
+1. get user id from req.user
+2. get doc id from req.params
+3. find based on doc id and user id and delete
+4. throw error if no job
+
+
