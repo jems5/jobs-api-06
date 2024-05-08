@@ -7,7 +7,7 @@ const app = express();
 const helmet = require("helmet");
 const cors = require("cors");
 const xss = require("xss-clean");
-const rateLimit = require("express-rate-limit");
+const rateLimiter = require("express-rate-limit");
 
 // connectDB
 const connectDB = require("./db/connect");
