@@ -3,6 +3,11 @@ require("express-async-errors");
 const express = require("express");
 const app = express();
 
+//swagger
+const swaggerUI = require("swagger-ui-express");
+const YAML = require("yamljs");
+const swaggerDocument = YAML.load("./swagger.yaml");
+
 // extra security packages
 const helmet = require("helmet");
 const cors = require("cors");
@@ -35,8 +40,9 @@ app.use(cors());
 app.use(xss());
 
 app.get("/", (req, res) => {
-  res.send("jobs api");
+  res.send('<h1>Jobs API</h1><a href="/api-docs">Documentation</a>');
 });
+app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerDocument));
 
 // routes
 app.use("/api/v1/auth", authRouter);
